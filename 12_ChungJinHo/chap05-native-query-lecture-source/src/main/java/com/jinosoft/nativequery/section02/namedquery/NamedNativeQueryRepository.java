@@ -1,0 +1,23 @@
+package com.jinosoft.nativequery.section02.namedquery;
+
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.Query;
+import org.springframework.stereotype.Repository;
+
+import java.util.List;
+
+@Repository
+public class NamedNativeQueryRepository {
+
+  @PersistenceContext
+  private EntityManager manager;
+
+	public List<Object[]> selectByNamedNativeQuery() {
+		Query nativeQuery
+				= manager.createNamedQuery("Category.menuCountOfCategory");
+		return nativeQuery.getResultList();
+	}
+
+
+}
