@@ -1,0 +1,20 @@
+package com.work.section03.entity;
+
+import com.work.section01.entityManager.EntityManagerFactoryGenerator;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
+
+public class EntityManagerGenerator {
+  private static EntityManagerFactory factory = Persistence.createEntityManagerFactory("jpatest");
+
+  public static EntityManager getInstance(){
+
+
+    // EntityManager 객체를 생성해서 반환
+    // 요청마다 새로운 EntityManager 객체가 생성
+    return factory.createEntityManager();
+
+
+  }
+}
